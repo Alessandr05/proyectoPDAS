@@ -13,18 +13,6 @@ router.get('/devolucion', (req, res) => {
     })
 });
 
-router.get('/xd', (req, res) => {
-    conexion.query('SELECT* FROM control', (error, results) => {
-        if (error) {
-            throw error;
-        } else {
-            res.render('xd', { results: results });
-        }
-    })
-});
-
-
-
 router.get('/entrega', (req, res) => {
     conexion.query('SELECT* FROM control', (error, results) => {
         if (error) {
@@ -45,17 +33,25 @@ router.get('/crudPda', (req, res) => {
     })
 });
 
+router.get('/entrega', (req, res) => {
+    conexion.query("DELETE FROM control WHERE idcontrol = ?", [idcontrol], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.render('entrega', { results: results });
+        }
+    })
+});
+
 router.get('/devolucion', (req, res) => {
     res.render('devolucion');
 });
 
-router.get('/xd', (req, res) => {
-    res.render('xd');
-});
 
 router.get('/create', (req, res) => {
     res.render('create');
 });
+
 
 router.get('/crudpda', (req, res) => {
     res.render('crudPda');
@@ -69,7 +65,10 @@ router.get('/entrega', (req, res) => {
     res.render('entrega');
 });
 const crud = require('./controller/crud');
+router.get('/entrega/:idcontrol');
 
+router.post('/savecontrol', crud.savecontrol);
 router.post('/savepda', crud.savepda);
+router.post('/update', crud.update);
 
 module.exports = router;

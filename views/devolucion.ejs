@@ -50,14 +50,11 @@
                     <th>SERIE PDA</th>
                     <th>NOMBRE PDA</th>
                     <th>NOMBRE USUARIO</th>
-                    <th>CARGO</th>
                     <th>PROCESO</th>
-
+                    <th>ACCION</th>
                 </tr>
             </thead>
             <tbody>
-
-
                 <% results.forEach((control)=> { %>
                     <tr>
                         <td>
@@ -73,10 +70,10 @@
                             <%=control.nomusu %>
                         </td>
                         <td>
-                            <%=control.cargo %>
+                            <%=control.proceso %>
                         </td>
                         <td>
-                            <%=control.proceso %>
+
                         </td>
                     </tr>
                     <% }) %>
