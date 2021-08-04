@@ -47,14 +47,3 @@ exports.update = (req, res) => {
         }
     });
 }
-
-exports.deletecontrol = function(req, res) {
-
-    Product.remove({ _id: req.params.idusuario }, function(err) {
-        if (err) { console.log('Error: ', err); return; }
-
-        console.log("Product deleted!");
-        res.redirect("/entrega");
-    });
-
-};

@@ -124,7 +124,7 @@
                             <%=control.turno %>
                         </td>
                         <td>
-                            <a href="/edit/<%=control.idcontrol %>" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModalEditar" data-bs-whatever="@mdo">editar</a>
+                            <a href="" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModalEditar" data-bs-whatever="@mdo"><i class='bx bxs-edit'></i></a>
                         </td>
                     </tr>
                     <% }) %>
@@ -141,32 +141,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="" method="POST">
+                        <input id="idcontrol" name="idcontrol" hidden>
                         <div class="mb-3">
                             <label for="user" class="form-label">COD/DNI</label>
-                            <input type="text" class="form-control" id="user" name="codni" tabindex="1">
+                            <input type="text" class="form-control" id="codni" name="codni" tabindex="1">
                         </div>
-                        <div class="mb-3 ">
-                            <label for="user " class="form-label ">SERIE PDA</label>
-                            <input type="text " class="form-control " id="user " name="seriepda " tabindex="1 ">
-                        </div>
-                        <div class="mb-3 ">
-                            <label for="user " class="form-label ">ÁREA</label>
-                            <input type="text " class="form-control " id="user " name="area " tabindex="1 ">
+                        <div class="mb-3">
+                            <label for="user" class="form-label">SERIE PDA</label>
+                            <input type="text" class="form-control" id="seriepda" name="seriepda" tabindex="1">
                         </div>
                         <div class="mb-3">
                             <label for="user" class="form-label">PROCESO</label>
                             <select id="proceso" name="proceso" class="form-select" tabindex="2">
-                                <option value="BTICINO" selected>BTICINO</option>
-                                <option value="RASH">RASH</option>
+                                <option value="bticino" selected>BTICINO</option>
+                                <option  value="rash">RASH</option>
                             </select>
                         </div>
                         <div class="mb-3 ">
                             <label for="user " class="form-label ">TURNO</label>
                             <select id="turno" name="turno" class="form-select" tabindex="2">
-                            <option value="1er" selected>1er</option>
-                            <option value="2er">2er</option>
-                            <option value="3er">3er</option>
+                            <option  value="1er" selected>1er</option>
+                            <option  value="2er">2er</option>
+                            <option  value="3er">3er</option>
                         </select>
                         </div>
                     </form>

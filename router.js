@@ -33,12 +33,12 @@ router.get('/crudPda', (req, res) => {
     })
 });
 
-router.get('/entrega', (req, res) => {
-    conexion.query("DELETE FROM control WHERE idcontrol = ?", [idcontrol], (error, results) => {
+router.get('/crudPda', (req, res) => {
+    conexion.query('SELECT * FROM estado', (error, results) => {
         if (error) {
             throw error;
         } else {
-            res.render('entrega', { results: results });
+            res.render('crudPda', { results: results });
         }
     })
 });
@@ -52,7 +52,6 @@ router.get('/create', (req, res) => {
     res.render('create');
 });
 
-
 router.get('/crudpda', (req, res) => {
     res.render('crudPda');
 });
@@ -65,7 +64,17 @@ router.get('/entrega', (req, res) => {
     res.render('entrega');
 });
 const crud = require('./controller/crud');
-router.get('/entrega/:idcontrol');
+
+router.get('/delete/:seriepda', (req, res) => {
+    const seriepda = req.params.seriepda;
+    conexion.query('DELETE FROM pda WHERE seriepda = ?', [seriepda], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.redirect('/crudPda')
+        }
+    })
+})
 
 router.post('/savecontrol', crud.savecontrol);
 router.post('/savepda', crud.savepda);
