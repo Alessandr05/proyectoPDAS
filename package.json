@@ -20,6 +20,7 @@
         "moment": "^2.29.1",
         "mysql": "^2.18.1",
         "nodemon": "^2.0.12",
-        "react-scripts": "^4.0.3"
+        "react-scripts": "^4.0.3",
+        "timeago.js": "^4.0.2"
     }
 }

@@ -33,7 +33,7 @@ exports.savepda = (req, res) => {
     });
 }
 
-exports.update = (req, res) => {
+exports.updatepda = (req, res) => {
     const seriepda = req.body.seriepda;
     const nombre = req.body.nombre;
     const idestado = req.body.idestado;

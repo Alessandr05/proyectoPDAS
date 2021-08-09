@@ -33,12 +33,12 @@ router.get('/crudPda', (req, res) => {
     })
 });
 
-router.get('/crudPda', (req, res) => {
+router.get('/createpda', (req, res) => {
     conexion.query('SELECT * FROM estado', (error, results) => {
         if (error) {
             throw error;
         } else {
-            res.render('crudPda', { results: results });
+            res.render('createpda', { results: results });
         }
     })
 });
@@ -47,10 +47,21 @@ router.get('/devolucion', (req, res) => {
     res.render('devolucion');
 });
 
-
-router.get('/create', (req, res) => {
-    res.render('create');
+router.get('/createPda', (req, res) => {
+    res.render('createPda');
 });
+
+router.get('/editpda/:seriepda', (req, res) => {
+    const seriepda = req.params.seriepda;
+    conexion.query('SELECT* FROM pda WHERE seriepda = ?', [seriepda], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.render('editpda', { pda: results[0] });
+        }
+    })
+})
+
 
 router.get('/crudpda', (req, res) => {
     res.render('crudPda');
@@ -76,8 +87,19 @@ router.get('/delete/:seriepda', (req, res) => {
     })
 })
 
+router.get('/edit/:seriepda', (req, res) => {
+    const seriepda = req.params.seriepda;
+    conexion.query('SELECT * FROM pda WHERE seriepda = ?', [seriepda], (error, results) => {
+        if (error) {
+            throw error;
+        } else {
+            res.render('crudPda', { user: results[0] });
+        }
+    })
+})
+
 router.post('/savecontrol', crud.savecontrol);
 router.post('/savepda', crud.savepda);
-router.post('/update', crud.update);
+router.post('/updatepda', crud.updatepda);
 
 module.exports = router;
